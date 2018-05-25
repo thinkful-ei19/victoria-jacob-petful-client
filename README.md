@@ -1,6 +1,6 @@
 # victoria-jacob-petful-client
 
-Petful app allows you to view currently availible dogs and cats for adoption
+Petful app allows you to adopt dogs and cats that are looking for a new home in just a click of a button. Living with a pet is a life-enhancer, and in most cases, animals become true members of the family: win-win situation for you and your new pet :dog:
 
 You can access the app here: https://xenodochial-nobel-baa567.netlify.com
 
