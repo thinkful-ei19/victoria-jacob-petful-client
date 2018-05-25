@@ -31,11 +31,6 @@ export function catReducer(state = initialState, action) {
             error: action.error
         } )
     }
-    if (action.type === ADOPT_CAT_SUCCESS) {
-      return Object.assign({}, state, {
-        data: state.cats.filter(cat => cat.id !== action.id)
-      });
-    }
     if(action.type === ADOPT_CAT_REQUEST) {
       return Object.assign({}, state, {loading: true});
     }

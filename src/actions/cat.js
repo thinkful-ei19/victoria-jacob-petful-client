@@ -67,7 +67,7 @@ export const adoptCat = () => dispatch => {
         .then(res => dispatch(AdoptCatSuccess(res)))
         .then(() => dispatch(fetchCat()))
         .catch(err => {
-            dispatch(AdoptCatError(err));
+            dispatch(adoptCatError(err));
         })
     )
 }
