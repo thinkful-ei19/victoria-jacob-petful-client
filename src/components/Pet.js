@@ -29,7 +29,7 @@ function Pet(props){
 }
 const mapStateToProps = (state) => {
   return ({
-  pet: state.cat
+  pet: state.cat.cat
 })}
 
 
