@@ -1,8 +1,10 @@
 .Pet{
   display: flex;
+  justify-content: center;
 }
 
 .Cat, .Dog {
+  margin: 15px;
  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
  transition: 0.3s;
  width: 410px;
@@ -33,9 +35,18 @@ h2 {
   margin-bottom: 0px;
 }
 
-.main {
-  font-style: italic;
+dt {
   font-size: 20px;
+  padding: 3px 3px;
+  margin-bottom: 6px;
+  margin: 2px 0px;
+  color: #535969;
+  border-radius: 1px;
+}
+
+dd {
+  font-style: italic;
+  font-size: 17px;
   padding: 3px 3px;
   margin-bottom: 6px;
   margin: 2px 0px;
