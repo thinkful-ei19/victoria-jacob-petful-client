@@ -27,48 +27,15 @@
     }
   }
 
+  onAdoptPet() {
+    console.log('onAdoptPet is working');
+  };
+
   render() {
     return (
-      <div className="App">
-        <div className='catToAdopt'>
-          <header>
-            <img alt={this.state.catToAdopt.imageDescription} src={this.state.catToAdopt.img}/>
-            <h2>{this.state.catToAdopt.name}</h2>
-          </header>
-          <main>
-            <dl>
-              <dt>Sex</dt>
-              <dd>{this.state.catToAdopt.sex}</dd>
-              <dt>Age</dt>
-              <dd>{this.state.catToAdopt.age}</dd>
-              <dt>Breed</dt>
-              <dd>{this.state.catToAdopt.breed}</dd>
-              <dt>Story</dt>
-              <dd>{this.state.catToAdopt.story}</dd>
-            </dl>
-          </main>
-          <button type='submit'>Adopt</button>
-        </div>
-
-        <div className='dogToAdopt'>
-        <header>
-          <img alt='imageDescription' src={this.state.dogToAdopt.img}/>
-          <h2>{this.state.dogToAdopt.name}</h2>
-        </header>
-          <main>
-            <dl>
-              <dt>Sex</dt>
-              <dd>{this.state.dogToAdopt.sex}</dd>
-              <dt>Age</dt>
-              <dd>{this.state.dogToAdopt.age}</dd>
-              <dt>Breed</dt>
-              <dd>{this.state.dogToAdopt.breed}</dd>
-              <dt>Story</dt>
-              <dd>{this.state.dogToAdopt.story}</dd>
-            </dl>
-          </main>
-          <button type='submit'>Adopt</button>
-        </div>
+      <div className="petToAdopt">
+        <Pet pet={this.state.catToAdopt} onAdoptPet={() => this.onAdoptPet()}/>
+        <Pet pet={this.state.dogToAdopt} onAdoptPet={() => this.onAdoptPet()}/>
       </div>
     );
   }
