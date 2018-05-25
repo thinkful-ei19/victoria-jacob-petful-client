@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config.js';
 import {normalizeResponseErrors} from './utils';
 
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';

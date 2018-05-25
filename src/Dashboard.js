@@ -1,30 +1,16 @@
   import React from 'react';
   import Pet from './components/Pet';
+  import {fetchCat} from './actions/cat';
+  import {fetchDog} from './actions/dog';
 
   export default class Dashboard extends React.Component{
   constructor(){
     super();
-
-    this.state={
-      catToAdopt:{
-        img:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
-        imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
-        name:'Fluffy',
-        sex:'Female',
-        age:'2',
-        breed: 'Bengal',
-        story:'Thrown on the street',
-      },
-      dogToAdopt:{
-        img:'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-        imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
-        name:'Zeus',
-        sex: 'Male',
-        age:'3',
-        breed: 'Golden Retriever',
-        story:'Owner Passed away',
-      }
     }
+  
+  componentDidMount() {
+    this.props.dispatch(fetchCat());
+    this.props.dispatch(fetchDog());
   }
 
   onAdoptPet() {
@@ -34,9 +20,18 @@
   render() {
     return (
       <div className="petToAdopt">
-        <Pet pet={this.state.catToAdopt} onAdoptPet={() => this.onAdoptPet()}/>
-        <Pet pet={this.state.dogToAdopt} onAdoptPet={() => this.onAdoptPet()}/>
+        <Pet onAdoptPet={() => this.onAdoptPet()}/>
+        <Pet onAdoptPet={() => this.onAdoptPet()}/>
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+      fetchCat,
+      fetchDog
+  }, dispatch);
+};
+
+export default connect(mapDispatchToProps)(Dashboard);

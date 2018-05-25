@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config.js';
 import {normalizeResponseErrors} from './utils';
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
@@ -64,10 +64,10 @@ export const adoptCat = () => dispatch => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(res => dispatch(AdoptCatSuccess(res)))
+        .then(res => dispatch(adoptCatSuccess(res)))
         .then(() => dispatch(fetchCat()))
         .catch(err => {
-            dispatch(AdoptCatError(err));
+            dispatch(adoptCatError(err));
         })
     )
 }
