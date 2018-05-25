@@ -64,7 +64,7 @@ export const adoptCat = () => dispatch => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(res => dispatch(AdoptCatSuccess(res)))
+        .then(res => dispatch(adoptCatSuccess(res)))
         .then(() => dispatch(fetchCat()))
         .catch(err => {
             dispatch(adoptCatError(err));

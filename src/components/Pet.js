@@ -1,6 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
-export default function Pet(props){
+function Pet(props){
 
   return (
     <div className="Pet">
@@ -25,4 +26,11 @@ export default function Pet(props){
       </section>
     </div>
   );
-};
+}
+const mapStateToProps = (state) => {
+  return ({
+  pet: state.cat
+})}
+
+
+export default connect(mapStateToProps)(Pet);
