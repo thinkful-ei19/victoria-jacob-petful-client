@@ -1,37 +1,34 @@
   import React from 'react';
   import Pet from './components/Pet';
-  import {fetchCat} from './actions/cat';
-  import {fetchDog} from './actions/dog';
+  import {fetchCat, adoptCat} from './actions/cat';
+  import {fetchDog, adoptDog} from './actions/dog';
+  import {connect} from 'react-redux';
+  // import {bindActionCreators} from 'redux';
 
-  export default class Dashboard extends React.Component{
-  constructor(){
-    super();
-    }
-  
+class Dashboard extends React.Component{
   componentDidMount() {
     this.props.dispatch(fetchCat());
     this.props.dispatch(fetchDog());
   }
 
-  onAdoptPet() {
-    console.log('onAdoptPet is working');
+  onAdoptCat() {
+    console.log("adopt cat")
+    this.props.dispatch(adoptCat());
+  };
+  onAdoptDog() {
+    console.log("adopt dog")
+    this.props.dispatch(adoptDog());
   };
 
   render() {
     return (
       <div className="petToAdopt">
-        <Pet onAdoptPet={() => this.onAdoptPet()}/>
-        <Pet onAdoptPet={() => this.onAdoptPet()}/>
+        <Pet onAdoptCat={() => this.onAdoptCat()}onAdoptDog={() => this.onAdoptDog()}/>
+
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-      fetchCat,
-      fetchDog
-  }, dispatch);
-};
 
-export default connect(mapDispatchToProps)(Dashboard);
+export default connect()(Dashboard);

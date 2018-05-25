@@ -1,35 +1,68 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-function Pet(props){
+class Pet extends React.Component{
 
-  return (
-    <div className="Pet">
-      <section className="petToAdopt">
-        <header role="banner">
-          <img alt={props.pet.imageDescription} src={props.pet.img}/>
-          <h2>{props.pet.name}</h2>
-        </header>
-        <main role="main">
-          <dl>
-            <dt>Sex</dt>
-            <dd>{props.pet.sex}</dd>
-            <dt>Age</dt>
-            <dd>{props.pet.age}</dd>
-            <dt>Breed</dt>
-            <dd>{props.pet.breed}</dd>
-            <dt>Story</dt>
-            <dd>{props.pet.story}</dd>
-          </dl>
-        </main>
-        <button type='submit' onClick={props.onAdoptPet}>Adopt</button>
-      </section>
-    </div>
-  );
+  render() {
+    let loading = null
+
+    if(!this.props.cat && !this.props.dog){
+      loading = <div>loading...</div>
+    }
+    if(this.props.cat && this.props.dog){
+      loading = <div className="Pet">
+                  <div className="Cat">
+                    <section className="catToAdopt">
+                      <header role="banner">
+                        <img alt={this.props.cat.imageDescription} src={this.props.cat.imageURL}/>
+                        <h2>{this.props.cat.name}</h2>
+                      </header>
+                      <main role="main">
+                        <dl>
+                          <dt>Sex</dt>
+                          <dd>{this.props.cat.sex}</dd>
+                          <dt>Age</dt>
+                          <dd>{this.props.cat.age}</dd>
+                          <dt>Breed</dt>
+                          <dd>{this.props.cat.breed}</dd>
+                          <dt>Story</dt>
+                          <dd>{this.props.cat.story}</dd>
+                        </dl>
+                      </main>
+                      <button type='submit' onClick={this.props.onAdoptCat}>Adopt Cat</button>
+                    </section>
+                  </div>
+
+                  <div className="Dog">
+                    <section className="dogToAdopt">
+                      <header role="banner">
+                        <img alt={this.props.dog.imageDescription} src={this.props.dog.imageURL}/>
+                        <h2>{this.props.dog.name}</h2>
+                      </header>
+                      <main role="main">
+                        <dl>
+                          <dt>Sex</dt>
+                          <dd>{this.props.dog.sex}</dd>
+                          <dt>Age</dt>
+                          <dd>{this.props.dog.age}</dd>
+                          <dt>Breed</dt>
+                          <dd>{this.props.dog.breed}</dd>
+                          <dt>Story</dt>
+                          <dd>{this.props.dog.story}</dd>
+                        </dl>
+                      </main>
+                      <button type='submit' onClick={this.props.onAdoptDog}>Adopt Dog</button>
+                    </section>
+                  </div>
+                </div>
+        }
+    return loading
+  }
 }
 const mapStateToProps = (state) => {
   return ({
-  pet: state.cat.cat
+  cat: state.cat.cat,
+  dog: state.dog.dog
 })}
 
 

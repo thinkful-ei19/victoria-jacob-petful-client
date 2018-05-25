@@ -7,14 +7,13 @@ import {
 } from '../actions/dog';
 
 const initialState = {
-  data: null,
+  dog: null,
   error: null,
   loading: false
 }
 
 export function dogReducer(state = initialState, action) {
     if(action.type === FETCH_DOG_SUCCESS) {
-      console.log(action)
       return Object.assign({}, state, {
           loading: false,
           error: false,

@@ -64,10 +64,10 @@ export const adoptDog = () => dispatch => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(res => dispatch(AdoptDogSuccess(res)))
+        .then(res => dispatch(adoptDogSuccess(res)))
         .then(() => dispatch(fetchDog()))
         .catch(err => {
-            dispatch(AdoptDogError(err));
+            dispatch(adoptDogError(err));
         })
     )
 }
